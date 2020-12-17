@@ -12,4 +12,4 @@ npm run dev - start dev server
 npm run start - bild
 
 
-![hippo](https://s8.gifyu.com/images/ezgif.com-crop6e81ce4768d885d1.gif)
+![hippo](https://s8.gifyu.com/images/ezgif.com-crop4686abe735e37961.gif)
