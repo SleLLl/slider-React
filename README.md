@@ -9,6 +9,7 @@ infinite: true, // infinite or not
 }
 
 npm run dev - start dev server
+***
 npm run start - bild
 
 
