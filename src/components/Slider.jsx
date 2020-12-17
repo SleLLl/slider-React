@@ -95,23 +95,38 @@ export default function Slider({setup}) {
 
 
     let startX, endX;
+    const ref = React.createRef();
+
+     const onAnimation = () =>{
+         if(activeIndex === 0 && (startX<endX)){
+             return translate;
+         }
+
+         if (activeIndex === elements.length - 1 &&(startX>endX)){
+             return -getWidth()*activeIndex;
+         }
+         return -translate-(startX-endX);
+
+     }
 // start Touch
     const onStart = (data) => {
         startX = data.targetTouches[0].clientX;
     }
 //Move Touch
     const onMove = (data) => {
+        ref.current.style.transform  = `translateX(${onAnimation()}px)`
         endX = data.targetTouches[0].clientX;
     }
 
 //End Touch
     const onSwipe = () => {
-        console.log(startX - endX)
+        ref.current.style.transform  ='';
         if (startX < endX && ((endX - startX) > getWidth() * 0.25)) {
             prevSlide();
         } else if (startX > endX && ((startX - endX) > getWidth() * 0.25)) {
             nextSlide();
         } else currentSlide();
+
     }
 
     // Image slade or other Content
@@ -138,6 +153,7 @@ export default function Slider({setup}) {
                 onTouchStart={onStart}
                 onTouchMove={onMove}
                 onTouchEnd={onSwipe}
+                ref={ref}
             >
                 {slides}
             </SliderContent>
