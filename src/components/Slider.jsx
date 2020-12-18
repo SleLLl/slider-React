@@ -26,9 +26,7 @@ const DotsWP = styled.div`
 
 export default function Slider({setup}) {
     const {elements, isImage, parent, infinite} = setup;
-    const parentEl = document.querySelector(parent);
-
-    const getWidth = () => parentEl.offsetWidth;
+    const getWidth = () => document.querySelector(parent).offsetWidth;
 
     const [state, setState] = useState({
         activeIndex: 0,
@@ -99,13 +97,13 @@ export default function Slider({setup}) {
 
      const onAnimation = () =>{
          if(activeIndex === 0 && (startX<endX)){
-             return translate;
+             return 0;
          }
 
          if (activeIndex === elements.length - 1 &&(startX>endX)){
              return -getWidth()*activeIndex;
          }
-         return -translate-(startX-endX);
+         return -getWidth()*activeIndex-(startX-endX);
 
      }
 // start Touch
