@@ -23,8 +23,10 @@ const DotsWrapper = styled.div`
 `
 
 
-export default function Slider({setup}) {
-    const {elements, parent, isImage, infinite} = setup;
+export default function Slider(props) {
+    const {elements, parent, isImage, infinite} = props.setup ? props.setup : props;
+
+
     const getWidth = () => document.querySelector(parent).offsetWidth;
 
     const [state, setState] = useState({
@@ -105,6 +107,7 @@ export default function Slider({setup}) {
 
     // start Touch and click
     const onStart = (data) => {
+        data.preventDefault();
         ref.current.style.transition = `transform ease-out 0s`;
         if (data.type === 'mousedown') {
             startX = data.clientX;
@@ -112,6 +115,7 @@ export default function Slider({setup}) {
     }
     //Move Touch and click
     const onMove = (data) => {
+        data.preventDefault();
         if (data.type === 'mousemove') {
             endX = data.clientX
         } else endX = data.targetTouches[0].clientX;

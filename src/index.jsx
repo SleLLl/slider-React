@@ -50,13 +50,13 @@ const mass = [
 
 
 const setup = {
-    elements: images,  // array elements
+    elements: mass,  // array elements
     parent: '#slider', // parent Selector
-    isImage: true,    // isImage or other content
+    isImage: false,    // isImage or other content
     infinite: true, // infinite or not
 }
 
-
-ReactDOM.render(<Slider setup={setup}/>, document.getElementById('slider'));
+ReactDOM.render(<Slider elements={images} parent={'#slider'} isImage={true} infinite={true}/>,
+    document.getElementById('slider'));
 
 
