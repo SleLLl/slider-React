@@ -25,7 +25,7 @@ const DotsWrapper = styled.div`
 
 
 export default function Slider(props) {
-  const {elements, parent, isImage = false, infinite = false} = props.setup ? props.setup : props;
+  const {elements, parent, isImage = false, infinite = false} = props.setup || props || {};
 
 
   const getWidth = () => document.querySelector(parent).offsetWidth;

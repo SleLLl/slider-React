@@ -21,7 +21,7 @@ link: https://slelll.github.io/slider-React/
 ## Using
 ```js
 const setup = {
-    elements: mass,  // array elements
+    elements: array,  // array of elements
     parent: '#slider', // parent Selector
     isImage: false,    // isImage or other content
     infinite: true, // infinite or not
@@ -33,7 +33,7 @@ const images = [
     'https://www.culture.ru/storage/images/4726affcaaf7197d2e1986263521efa3/91f1fa95d8a9f7991060dcde6df23344.jpeg'
 ]
 
-ReactDOM.render(<Slider elements={images} parent={'#slider'} isImage={true} infinite={true}/>,
+ReactDOM.render(<Slider {...setup}/>,
     document.getElementById('slider'));
 ```
 #### Options

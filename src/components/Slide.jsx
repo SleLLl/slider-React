@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const SlideWrapper = styled.div`
   height: 100%;
-  width:  ${props => props.width ?  `${props.width}` :'100%' } ;
+  width: ${props => props.width ? `${props.width}` : '100%'};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,7 +20,9 @@ const SlideWrapper = styled.div`
     object-fit: cover;
   }
 `
-
-export default function Slide({item, imgUrl}) {
+const Slide = ({item, imgUrl}) => {
   return (<SlideWrapper imgUrl={imgUrl}>{item}</SlideWrapper>)
 }
+
+
+export default Slide;

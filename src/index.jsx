@@ -11,7 +11,7 @@ const images = [
   'https://www.culture.ru/storage/images/4726affcaaf7197d2e1986263521efa3/91f1fa95d8a9f7991060dcde6df23344.jpeg'
 ]
 
-const mass = [
+const array = [
   <div className='slide'>
     <img className='slide__img'
          src={'https://img3.akspic.ru/image/22361-lednikovoe_ozero-gora-morena-park-voda-2560x1600.jpg'}/>
@@ -54,13 +54,13 @@ const mass = [
 
 
 const setup = {
-  elements: mass,  // array elements
+  elements: array,  // array of elements
   parent: '#slider', // parent Selector
   isImage: false,    // isImage or other content
   infinite: true, // infinite or not
 }
 
-ReactDOM.render(<Slider elements={mass} parent={'#slider'} isImage={false} infinite={false}/>,
+ReactDOM.render(<Slider {...setup}/>,
   document.getElementById('slider'));
 
 
