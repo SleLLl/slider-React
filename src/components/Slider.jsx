@@ -1,20 +1,19 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import SliderContent from "./SliderContent.jsx";
-import SlideImg from "./SlideImg.jsx";
 import Slide from "./Slide.jsx";
 import Arrow from "./Arrow.jsx";
 import Dot from "./Dot.jsx";
 import styled from 'styled-components';
 
 
-const SliderWp = styled.div`
+const SliderWrapper = styled.div`
   position: relative;
   height: 100%;
   width: 100%;
   margin: 0 auto;
   overflow: hidden;
 `
-const DotsWP = styled.div`
+const DotsWrapper = styled.div`
   position: absolute;
   bottom: 25px;
   width: 100%;
@@ -25,7 +24,7 @@ const DotsWP = styled.div`
 
 
 export default function Slider({setup}) {
-    const {elements, isImage, parent, infinite} = setup;
+    const {elements, parent, isImage, infinite} = setup;
     const getWidth = () => document.querySelector(parent).offsetWidth;
 
     const [state, setState] = useState({
@@ -73,6 +72,7 @@ export default function Slider({setup}) {
         const numbSlide = +e.target.getAttribute('data-attr')
         setState(prevState => ({
             ...prevState,
+            transition: 0.45,
             activeIndex: numbSlide,
             translate: numbSlide * getWidth(),
         }));
@@ -82,43 +82,50 @@ export default function Slider({setup}) {
     const currentSlide = () => {
         setState(prevState => ({
             ...prevState,
-            translate: activeIndex * getWidth()
+            transition: 0.45,
+            translate: prevState.activeIndex * getWidth(),
         }));
     }
 
 // resize for adaptive
-    window.onresize = () => {
-        currentSlide();
-    }
-
+    useEffect(() => {
+        window.onresize = () =>
+            currentSlide()
+    }, []);
 
     let startX, endX;
     const ref = React.createRef();
 
-     const onAnimation = () =>{
-         if(activeIndex === 0 && (startX<endX)){
-             return 0;
-         }
+    const onAnimation = () => {
+        if (activeIndex === 0 && (startX < endX)) return 0;
 
-         if (activeIndex === elements.length - 1 &&(startX>endX)){
-             return -getWidth()*activeIndex;
-         }
-         return -getWidth()*activeIndex-(startX-endX);
+        if (activeIndex === elements.length - 1 && (startX > endX)) {
+            return -getWidth() * activeIndex;
+        }
+        return -getWidth() * activeIndex - (startX - endX);
 
-     }
-// start Touch
+    }
+
+
+// start Touch and click
     const onStart = (data) => {
-        startX = data.targetTouches[0].clientX;
+        if (data.type === 'mousedown') {
+            startX = data.clientX;
+            ref.current.style.transition = `transform ease-out 0s`;
+        } else startX = data.targetTouches[0].clientX;
     }
-//Move Touch
+//Move Touch and click
     const onMove = (data) => {
-        ref.current.style.transform  = `translateX(${onAnimation()}px)`
-        endX = data.targetTouches[0].clientX;
+        if (data.type === 'mousemove') {
+            endX = data.clientX
+        } else endX = data.targetTouches[0].clientX;
+        ref.current.style.transform = `translateX(${onAnimation()}px)`
     }
 
-//End Touch
+//End Touch and click
     const onSwipe = () => {
-        ref.current.style.transform  ='';
+        ref.current.style.transform = '';
+        ref.current.style.transition = `transform ease-out ${transition}s`;
         if (startX < endX && ((endX - startX) > getWidth() * 0.25)) {
             prevSlide();
         } else if (startX > endX && ((startX - endX) > getWidth() * 0.25)) {
@@ -126,9 +133,8 @@ export default function Slider({setup}) {
         } else currentSlide();
 
     }
-
     // Image slade or other Content
-    const slides = isImage ? elements.map((item, i) => <SlideImg key={i} imgUrl={item}/>) :
+    const slides = isImage ? elements.map((item, i) => <Slide imgUrl={item} key={i}/>) :
         elements.map((item, i) => <Slide key={i} item={item}/>);
 
     //infinite slider or not
@@ -143,7 +149,7 @@ export default function Slider({setup}) {
 
 
     return (
-        <SliderWp>
+        <SliderWrapper>
             <SliderContent
                 translate={translate}
                 transition={transition}
@@ -151,14 +157,17 @@ export default function Slider({setup}) {
                 onTouchStart={onStart}
                 onTouchMove={onMove}
                 onTouchEnd={onSwipe}
+                onMouseDown={onStart}
+                onMouseUp={onSwipe}
+                onMouseMove={onMove}
                 ref={ref}
             >
                 {slides}
             </SliderContent>
             {window.innerWidth > 700 ? rightArrow : null}
             {window.innerWidth > 700 ? leftArrow : null}
-            <DotsWP>{dot}</DotsWP>
-        </SliderWp>
+            <DotsWrapper>{dot}</DotsWrapper>
+        </SliderWrapper>
 
     )
 

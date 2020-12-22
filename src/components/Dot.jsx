@@ -1,17 +1,18 @@
 import React from 'react'
 import styled from 'styled-components';
 
+const DotWrapper = styled.span`
+  padding: 10px;
+  margin-right: 5px;
+  cursor: pointer;
+  border-radius: 50%;
+  background: ${props => props.active ? 'black' : 'white'};`
+
+
 function Dot({active, changeSlide, numb}) {
 
     const atr = {'data-attr': numb}
-    const Dot = styled.span`
-      padding: 10px;
-      margin-right: 5px;
-      cursor: pointer;
-      border-radius: 50%;
-      background: ${active ? 'black' : 'white'};`
-
-    return (<Dot {...atr} onClick={changeSlide}/>)
+    return (<DotWrapper {...atr} active={active} onClick={changeSlide}/>)
 
 }
 
