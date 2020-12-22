@@ -23,8 +23,7 @@ const mass = [
   </div>
   ,
   <div className='slide'>
-    <img className='slide__img'
-         src={'https://img2.akspic.ru/image/131890-ozero-voda-ozernyj_kraj-peyzash-prirodnyj_landshaft-2880x1800.jpg'}/>
+      <button className='slide__btn'>Success</button>
     <h1>
       Debitis dolores eaque exercitationem in labore numquam quo tenetur voluptatibus. Deleniti doloremque dolorum
       et, exercitationem expedita ipsam odio praesentium quam quia, quisquam reiciendis repudiandae rerum vero! Quasi
@@ -41,13 +40,15 @@ const mass = [
     </h1>
   </div>,
   <div className='slide'>
-    <img className='slide__img'
-         src={'https://www.culture.ru/storage/images/4726affcaaf7197d2e1986263521efa3/91f1fa95d8a9f7991060dcde6df23344.jpeg'}/>
-    <h1>
-      Debitis dolores eaque exercitationem in labore numquam quo tenetur voluptatibus. Deleniti doloremque dolorum
-      et, exercitationem expedita ipsam odio praesentium quam quia, quisquam reiciendis repudiandae rerum vero! Quasi
-      quisquam totam voluptatum!
-    </h1>
+    <div className='card'>
+      <img className='slide__img'
+           src={'https://www.culture.ru/storage/images/4726affcaaf7197d2e1986263521efa3/91f1fa95d8a9f7991060dcde6df23344.jpeg'}/>
+      <h1>
+        Debitis dolores eaque exercitationem in labore numquam quo tenetur voluptatibus. Deleniti doloremque dolorum
+        et, exercitationem expedita ipsam odio praesentium quam quia, quisquam reiciendis repudiandae rerum vero! Quasi
+        quisquam totam voluptatum!
+      </h1>
+    </div>
   </div>
 ]
 

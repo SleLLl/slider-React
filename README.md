@@ -7,7 +7,7 @@ This project implements an adaptive carousel slider that works with any HTML.
 ## Main features:
 * Infinity option;
 * Scroling to selected slide;
-* Supports swipes (on mibile and desktop devices);
+* Supports swipes (on mobile and desktop devices);
  ____________________________________________________________________________
 
 ## Demo

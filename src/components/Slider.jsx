@@ -137,7 +137,7 @@ export default function Slider(props) {
   }
   // Image slade or other Content
   const slides = isImage ? elements.map((item, i) => <Slide imgUrl={item} key={i}/>) :
-    elements.map((item, i) => <Slide key={i} item={item}/>);
+    elements.map((item, i) => <Slide width={getWidth()} key={i} item={item}/>);
 
   //infinite slider or not
   const leftArrow = (infinite || activeIndex > 0) ? <Arrow direction={'left'} handleClick={prevSlide}/> : null;
