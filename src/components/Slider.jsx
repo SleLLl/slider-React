@@ -110,16 +110,16 @@ export default function Slider(props) {
 
   // start Touch and click
   const onStart = (data) => {
-    data.preventDefault();
     ref.current.style.transition = `transform ease-out 0s`;
     if (data.type === 'mousedown') {
+      data.preventDefault();
       startX = data.clientX;
     } else startX = data.targetTouches[0].clientX;
   }
   //Move Touch and click
   const onMove = (data) => {
-    data.preventDefault();
     if (data.type === 'mousemove') {
+      data.preventDefault();
       endX = data.clientX
     } else endX = data.targetTouches[0].clientX;
     ref.current.style.transform = `translateX(${onAnimation()}px)`
