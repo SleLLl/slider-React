@@ -13,7 +13,7 @@ This project implements an adaptive carousel slider that works with any HTML.
 ## Demo
 
 ![hippo](https://s8.gifyu.com/images/ezgif.com-crop4686abe735e37961.gif)
-
+link: https://slelll.github.io/slider-React/
   ____________________________________________________________________________
 ## Using
 ```js
