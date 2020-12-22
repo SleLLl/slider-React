@@ -72,17 +72,14 @@ export default function Slider({setup}) {
         const numbSlide = +e.target.getAttribute('data-attr')
         setState(prevState => ({
             ...prevState,
-            transition: 0.45,
             activeIndex: numbSlide,
             translate: numbSlide * getWidth(),
         }));
     }
 
-
     const currentSlide = () => {
         setState(prevState => ({
             ...prevState,
-            transition: 0.45,
             translate: prevState.activeIndex * getWidth(),
         }));
     }
@@ -92,6 +89,7 @@ export default function Slider({setup}) {
         window.onresize = () =>
             currentSlide()
     }, []);
+
 
     let startX, endX;
     const ref = React.createRef();
@@ -103,18 +101,16 @@ export default function Slider({setup}) {
             return -getWidth() * activeIndex;
         }
         return -getWidth() * activeIndex - (startX - endX);
-
     }
 
-
-// start Touch and click
+    // start Touch and click
     const onStart = (data) => {
+        ref.current.style.transition = `transform ease-out 0s`;
         if (data.type === 'mousedown') {
             startX = data.clientX;
-            ref.current.style.transition = `transform ease-out 0s`;
         } else startX = data.targetTouches[0].clientX;
     }
-//Move Touch and click
+    //Move Touch and click
     const onMove = (data) => {
         if (data.type === 'mousemove') {
             endX = data.clientX
@@ -122,10 +118,9 @@ export default function Slider({setup}) {
         ref.current.style.transform = `translateX(${onAnimation()}px)`
     }
 
-//End Touch and click
+    //End Touch and click
     const onSwipe = () => {
-        ref.current.style.transform = '';
-        ref.current.style.transition = `transform ease-out ${transition}s`;
+        ref.current.style = '';
         if (startX < endX && ((endX - startX) > getWidth() * 0.25)) {
             prevSlide();
         } else if (startX > endX && ((startX - endX) > getWidth() * 0.25)) {
@@ -170,6 +165,5 @@ export default function Slider({setup}) {
         </SliderWrapper>
 
     )
-
 
 }

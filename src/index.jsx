@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Slider from './components/Slider.jsx';
-
+import './style.css';
 
 
 const images = [
