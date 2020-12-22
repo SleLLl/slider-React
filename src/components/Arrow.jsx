@@ -31,9 +31,9 @@ const ArrowWrapper = styled.div`
 `
 
 function Arrow({direction, handleClick}) {
-    return (<ArrowWrapper direction={direction} onClick={handleClick}>
-        <img src={arrow}/>
-    </ArrowWrapper>)
+  return (<ArrowWrapper direction={direction} onClick={handleClick}>
+    <img src={arrow}/>
+  </ArrowWrapper>)
 }
 
 export default Arrow

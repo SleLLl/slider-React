@@ -11,8 +11,8 @@ const DotWrapper = styled.span`
 
 function Dot({active, changeSlide, numb}) {
 
-    const atr = {'data-attr': numb}
-    return (<DotWrapper {...atr} active={active} onClick={changeSlide}/>)
+  const atr = {'data-attr': numb}
+  return (<DotWrapper {...atr} active={active} onClick={changeSlide}/>)
 
 }
 

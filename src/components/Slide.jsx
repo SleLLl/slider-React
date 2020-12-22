@@ -22,5 +22,5 @@ const SlideWrapper = styled.div`
 `
 
 export default function Slide({item, imgUrl}) {
-    return (<SlideWrapper imgUrl={imgUrl}>{item}</SlideWrapper>)
+  return (<SlideWrapper imgUrl={imgUrl}>{item}</SlideWrapper>)
 }
