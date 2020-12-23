@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import Slider from './components/Slider.jsx';
 import './style.css';
 
-
 const images = [
   'https://img2.akspic.ru/image/131890-ozero-voda-ozernyj_kraj-peyzash-prirodnyj_landshaft-2880x1800.jpg',
   'https://img3.akspic.ru/image/22361-lednikovoe_ozero-gora-morena-park-voda-2560x1600.jpg',
@@ -50,7 +49,6 @@ const array = [
     </div>
   </div>
 ]
-
 
 const setup = {
   elements: array,  // array of elements

@@ -22,7 +22,7 @@ const DotsWrapper = styled.div`
   justify-content: center;
 `
 
-export default function Slider(props) {
+const Slider = (props)  =>{
 
   const {elements, parent, isImage = false, infinite = false} = props.setup || props || {};
 
@@ -58,7 +58,6 @@ export default function Slider(props) {
     if (!infinite && activeIndex === 0) {
       return currentSlide();
     }
-
     if (activeIndex === 0) {
       return setState(prevState => ({
         ...prevState,
@@ -66,7 +65,6 @@ export default function Slider(props) {
         activeIndex: elements.length - 1
       }));
     }
-
     setState(prevState => ({
       ...prevState,
       activeIndex: activeIndex - 1,
@@ -98,6 +96,7 @@ export default function Slider(props) {
   }, []);
 
   let startX, endX;
+  const maxSizeFoRenderArrow = 700;
   const ref = React.createRef();
 
   const onAnimation = () => {
@@ -112,6 +111,7 @@ export default function Slider(props) {
       startX = data.clientX;
     } else startX = data.targetTouches[0].clientX;
   }
+
   //Move Touch and click
   const onMove = (data) => {
     if (data.type === 'mousemove') {
@@ -120,6 +120,7 @@ export default function Slider(props) {
     } else endX = data.targetTouches[0].clientX;
     ref.current.style.transform = `translateX(${onAnimation()}px)`
   }
+
   //End Touch and click
   const onSwipe = () => {
     ref.current.style = '';
@@ -161,9 +162,11 @@ export default function Slider(props) {
       >
         {slides}
       </SliderContent>
-      {window.innerWidth > 700 ? rightArrow : null}
-      {window.innerWidth > 700 ? leftArrow : null}
+      {window.innerWidth > maxSizeFoRenderArrow ? rightArrow : null}
+      {window.innerWidth > maxSizeFoRenderArrow ? leftArrow : null}
       <DotsWrapper>{dot}</DotsWrapper>
     </SliderWrapper>
   )
 }
+
+export default Slider;

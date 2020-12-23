@@ -7,5 +7,5 @@ const SliderContent = styled.div`
   width: ${props => props.width}px;
   display: flex;
 `
-export default SliderContent
 
+export default SliderContent

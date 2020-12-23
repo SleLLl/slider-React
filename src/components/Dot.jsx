@@ -8,7 +8,6 @@ const DotWrapper = styled.span`
   border-radius: 50%;
   background: ${props => props.active ? 'black' : 'white'};`
 
-
 const Dot = ({active, changeSlide,}) => (
   <DotWrapper active={active} onClick={changeSlide}/>
 );

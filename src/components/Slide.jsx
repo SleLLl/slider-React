@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-
 const SlideWrapper = styled.div`
   height: 100%;
   width: ${props => props.width ? `${props.width}` : '100%'};
@@ -20,6 +19,7 @@ const SlideWrapper = styled.div`
     object-fit: cover;
   }
 `
+
 const Slide = ({children, imgUrl}) => (
   <SlideWrapper imgUrl={imgUrl}>{children}</SlideWrapper>
 );
