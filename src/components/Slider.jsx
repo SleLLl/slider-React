@@ -96,7 +96,7 @@ const Slider = (props)  =>{
   }, []);
 
   let startX, endX;
-  const maxSizeFoRenderArrow = 700;
+  const maxSizeForRenderArrow = 700;
   const ref = React.createRef();
 
   const onAnimation = () => {
@@ -162,8 +162,8 @@ const Slider = (props)  =>{
       >
         {slides}
       </SliderContent>
-      {window.innerWidth > maxSizeFoRenderArrow ? rightArrow : null}
-      {window.innerWidth > maxSizeFoRenderArrow ? leftArrow : null}
+      {window.innerWidth > maxSizeForRenderArrow ? rightArrow : null}
+      {window.innerWidth > maxSizeForRenderArrow ? leftArrow : null}
       <DotsWrapper>{dot}</DotsWrapper>
     </SliderWrapper>
   )
