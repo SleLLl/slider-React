@@ -8,4 +8,4 @@ const SliderContent = styled.div`
   display: flex;
 `
 
-export default SliderContent
+export default SliderContent;

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import styled from 'styled-components';
 
 const DotWrapper = styled.span`
@@ -12,4 +12,4 @@ const Dot = ({active, changeSlide,}) => (
   <DotWrapper active={active} onClick={changeSlide}/>
 );
 
-export default Dot
+export default Dot;

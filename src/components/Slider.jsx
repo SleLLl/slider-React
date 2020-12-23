@@ -78,21 +78,21 @@ const Slider = (props)  =>{
     setState(prevState => ({
       ...prevState,
       activeIndex: numbSlide,
-      translate: numbSlide * getWidth(),
+      translate: numbSlide * getWidth()
     }));
   }
 
   const currentSlide = () => {
     setState(prevState => ({
       ...prevState,
-      translate: prevState.activeIndex * getWidth(),
+      translate: prevState.activeIndex * getWidth()
     }));
   }
 
 // resize for adaptive
   useEffect(() => {
     window.onresize = () =>
-      currentSlide()
+      currentSlide();
   }, []);
 
   let startX, endX;
@@ -116,9 +116,9 @@ const Slider = (props)  =>{
   const onMove = (data) => {
     if (data.type === 'mousemove') {
       data.preventDefault();
-      endX = data.clientX
+      endX = data.clientX;
     } else endX = data.targetTouches[0].clientX;
-    ref.current.style.transform = `translateX(${onAnimation()}px)`
+    ref.current.style.transform = `translateX(${onAnimation()}px)`;
   }
 
   //End Touch and click
