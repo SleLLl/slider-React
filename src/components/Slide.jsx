@@ -20,9 +20,8 @@ const SlideWrapper = styled.div`
     object-fit: cover;
   }
 `
-const Slide = ({item, imgUrl}) => {
-  return (<SlideWrapper imgUrl={imgUrl}>{item}</SlideWrapper>)
-}
-
+const Slide = ({children, imgUrl}) => (
+  <SlideWrapper imgUrl={imgUrl}>{children}</SlideWrapper>
+);
 
 export default Slide;

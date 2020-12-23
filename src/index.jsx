@@ -20,10 +20,9 @@ const array = [
       et, exercitationem expedita ipsam odio praesentium quam quia, quisquam reiciendis repudiandae rerum vero! Quasi
       quisquam totam voluptatum!
     </h1>
-  </div>
-  ,
+  </div>,
   <div className='slide'>
-      <button className='slide__btn'>Success</button>
+    <button className='slide__btn'>Success</button>
     <h1>
       Debitis dolores eaque exercitationem in labore numquam quo tenetur voluptatibus. Deleniti doloremque dolorum
       et, exercitationem expedita ipsam odio praesentium quam quia, quisquam reiciendis repudiandae rerum vero! Quasi

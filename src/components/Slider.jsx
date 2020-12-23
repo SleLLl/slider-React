@@ -5,7 +5,6 @@ import Arrow from "./Arrow.jsx";
 import Dot from "./Dot.jsx";
 import styled from 'styled-components';
 
-
 const SliderWrapper = styled.div`
   position: relative;
   height: 100%;
@@ -23,10 +22,9 @@ const DotsWrapper = styled.div`
   justify-content: center;
 `
 
-
 export default function Slider(props) {
-  const {elements, parent, isImage = false, infinite = false} = props.setup || props || {};
 
+  const {elements, parent, isImage = false, infinite = false} = props.setup || props || {};
 
   const getWidth = () => document.querySelector(parent).offsetWidth;
 
@@ -78,8 +76,7 @@ export default function Slider(props) {
   }
 
 // for dots click
-  const onChangeSlide = (e) => {
-    const numbSlide = +e.target.getAttribute('data-attr')
+  const onChangeSlide = (numbSlide) => (e) => {
     setState(prevState => ({
       ...prevState,
       activeIndex: numbSlide,
@@ -99,7 +96,6 @@ export default function Slider(props) {
     window.onresize = () =>
       currentSlide()
   }, []);
-
 
   let startX, endX;
   const ref = React.createRef();
@@ -124,7 +120,6 @@ export default function Slider(props) {
     } else endX = data.targetTouches[0].clientX;
     ref.current.style.transform = `translateX(${onAnimation()}px)`
   }
-
   //End Touch and click
   const onSwipe = () => {
     ref.current.style = '';
@@ -133,11 +128,12 @@ export default function Slider(props) {
     } else if (startX > endX && ((startX - endX) > getWidth() * 0.25)) {
       nextSlide();
     } else currentSlide();
-
   }
+
   // Image slade or other Content
+  // I use the index in the keys because the index will not change
   const slides = isImage ? elements.map((item, i) => <Slide imgUrl={item} key={i}/>) :
-    elements.map((item, i) => <Slide width={getWidth()} key={i} item={item}/>);
+    elements.map((item, i) => <Slide width={getWidth()} key={i}>{item}</Slide>);
 
   //infinite slider or not
   const leftArrow = (infinite || activeIndex > 0) ? <Arrow direction={'left'} handleClick={prevSlide}/> : null;
@@ -146,9 +142,8 @@ export default function Slider(props) {
 
   //create dot
   const dot = elements.map((slide, i) => (
-    <Dot changeSlide={onChangeSlide} numb={i} key={i} active={activeIndex === i}/>
+    <Dot changeSlide={onChangeSlide(i)} key={i} active={activeIndex === i}/>
   ));
-
 
   return (
     <SliderWrapper>
@@ -170,7 +165,5 @@ export default function Slider(props) {
       {window.innerWidth > 700 ? leftArrow : null}
       <DotsWrapper>{dot}</DotsWrapper>
     </SliderWrapper>
-
   )
-
 }

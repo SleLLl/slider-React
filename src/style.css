@@ -1,6 +1,12 @@
-#slider {
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#slider{
   width: 100vw;
-  height: 95vh;
+  height: 100vh;
 }
 
 .slide{
@@ -17,7 +23,9 @@
 .card{
   display: flex;
   align-items: center;
+  flex-direction: column;
 }
 .card .slide__img{
   max-width: 50%;
+  margin-bottom: 20px;
 }

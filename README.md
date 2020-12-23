@@ -6,7 +6,7 @@ This project implements an adaptive carousel slider that works with any HTML.
 
 ## Main features:
 * Infinity option;
-* Scroling to selected slide;
+* Scrolling to selected slide;
 * Supports swipes (on mobile and desktop devices);
  ____________________________________________________________________________
 
@@ -50,8 +50,8 @@ ReactDOM.render(<Slider {...setup}/>,
  git clone https://github.com/SleLLl/slider-React.git
  cd slider-React
  npm i 
- npm run dev - start dev server
- npm run start - bild
+ npm start - start dev server 
+ npm run build - build
   ```
-Then open in browser  http://localhost:3000/
+
   

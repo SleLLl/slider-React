@@ -9,11 +9,8 @@ const DotWrapper = styled.span`
   background: ${props => props.active ? 'black' : 'white'};`
 
 
-function Dot({active, changeSlide, numb}) {
-
-  const atr = {'data-attr': numb}
-  return (<DotWrapper {...atr} active={active} onClick={changeSlide}/>)
-
-}
+const Dot = ({active, changeSlide,}) => (
+  <DotWrapper active={active} onClick={changeSlide}/>
+);
 
 export default Dot
