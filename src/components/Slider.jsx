@@ -70,7 +70,6 @@ const Slider = (props)  =>{
       activeIndex: activeIndex - 1,
       translate: (activeIndex - 1) * getWidth()
     }));
-
   }
 
 // for dots click

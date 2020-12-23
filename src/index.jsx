@@ -54,7 +54,7 @@ const setup = {
   elements: array,  // array of elements
   parent: '#slider', // parent Selector
   isImage: false,    // isImage or other content
-  infinite: true, // infinite or not
+  infinite: true // infinite or not
 }
 
 ReactDOM.render(<Slider {...setup}/>,
