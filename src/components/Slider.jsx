@@ -73,7 +73,7 @@ const Slider = (props)  =>{
   }
 
 // for dots click
-  const onChangeSlide = (numbSlide) => (e) => {
+  const onChangeSlide = (numbSlide) => () => {
     setState(prevState => ({
       ...prevState,
       activeIndex: numbSlide,
