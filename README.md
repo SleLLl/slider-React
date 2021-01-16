@@ -1,6 +1,5 @@
 
 # Slider-carousel
-
 This project implements an adaptive carousel slider that works with any HTML.
  ____________________________________________________________________________
 
