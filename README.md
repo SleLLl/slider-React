@@ -10,7 +10,6 @@ This project implements an adaptive carousel slider that works with any HTML.
  ____________________________________________________________________________
 
 ## Demo
-
 link: https://slelll.github.io/slider-React/
   ____________________________________________________________________________
 
